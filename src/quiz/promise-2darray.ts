@@ -26,7 +26,27 @@ const array2D = [
 ];
 
 const sumPromise1 = sum2DArray(array2D);
-console.log('sumPromise1:', sumPromise1);
+sumPromise1
+    .then(result => {
+        console.log('Result from sumPromise1:', result);
+    })
+    .catch(error => {
+        console.error('Error from sumPromise1:', error);
+    });
 
 const sumPromise2 = sum2DArray([]);
-console.log('sumPromise2:', sumPromise2);
+sumPromise2
+    .then(result => {
+        console.log('Result from sumPromise2:', result);
+    })
+    .catch(error => {
+        console.error('Error from sumPromise2:', error);
+    });
+
+
+    //Basically the Promise one initiates and is added to the queue, 
+    //then it calls sun2DArray. 2DArray runs and adds all of the ints 
+    //in the array. Promise then returns the result that is passed to 
+    //it from sum2DArray. Sum promise 2 does not run becaus the type is 
+    // not included. Sum2DArray(array2D) provides the type. It runs main
+    //thread, then the promises, and then the timeouts. 
